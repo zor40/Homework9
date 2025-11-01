@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+@SuppressWarnings("ALL")
 public class Main {
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
@@ -24,11 +25,6 @@ public class Main {
                 max = money;
             }
         }
-        for (int money : inputArray1) {
-            if (money < min) {
-                min = money;
-            }
-        }
         float average = sum / inputArray1.length;
         float[] outPutArray1 = {sum, max, min, average};
         System.out.println(Arrays.toString(outPutArray1));
@@ -36,13 +32,15 @@ public class Main {
         System.out.println("Task 2");
         int[] inputArray2 = {50000, 60000, 70000, 80000, 90000};
         double[] outPutArray2 = new double[5];
-        for (int i = 0; i < inputArray2.length; i++) {
-            System.out.println(inputArray2[i]);
-            double tax = inputArray2[i] * 0.13;
-            outPutArray2[i] = tax;
-            System.out.println(outPutArray2[i]);
-            System.out.println();
+        int array2 = 0;
+        for (double payment : inputArray2) {
+            double tax = payment * 0.13;
+            outPutArray2[array2] = tax;
+            array2++;
         }
+        System.out.println("inputArray (выплаты): " + Arrays.toString(inputArray2));
+        System.out.println("outPutArray (налог 13%): " + Arrays.toString(outPutArray2));
+
         System.out.println("Task 3");
         int[] inputArray3 = {0, 1000, 5000, 10000, 15000};
         boolean[] outPutArray3 = new boolean[5];
@@ -58,18 +56,20 @@ public class Main {
         }
         System.out.println(Arrays.toString(inputArray3));
         System.out.println(Arrays.toString(outPutArray3));
+
         System.out.println("Task 4");
         int[] inputArray4 = {10000, 10000, 10000, -10000, 10000};
-        boolean[] outPutArray4 = new boolean[5];
-        for (int i = 0; i < inputArray4.length; i++) {
-            if (inputArray4[i] > 0) {
-                outPutArray4[i] = true;
-            } else {
-                outPutArray4[i] = false;
-            }
-            System.out.println(inputArray4[i]);
-            System.out.println(outPutArray4[i]);
+        boolean[] outPutArray4 = new boolean[1];
+        boolean balanceSum = true;
+        for (int balance : inputArray4) {
+            if (balance < 0) ;
+            balanceSum = false;
+            break;
         }
+        System.out.println(Arrays.toString(inputArray4));
+        System.out.println(Arrays.toString(outPutArray4));
+
+
         System.out.println("Task 5");
         int[] inputArray5 = {500000, 600000, 700000, 800000, 900000};
         int profitableMonthsCount = 0;
