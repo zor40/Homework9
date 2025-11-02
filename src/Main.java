@@ -14,15 +14,13 @@ public class Main {
         int sum = 0;
         int max = inputArray1[0];
         int min = inputArray1[0];
-        for (int i = 0; i < inputArray1.length; i++) {
-        }
-        System.out.println(Arrays.toString(inputArray1));
         for (int money : inputArray1) {
             sum += money;
-        }
-        for (int money : inputArray1) {
             if (money > max) {
                 max = money;
+            }
+            if (money < min) {
+                min = money;
             }
         }
         float average = sum / inputArray1.length;
@@ -62,9 +60,10 @@ public class Main {
         boolean[] outPutArray4 = new boolean[1];
         boolean balanceSum = true;
         for (int balance : inputArray4) {
-            if (balance < 0) ;
-            balanceSum = false;
-            break;
+            if (balance < 0) {
+                balanceSum = false;
+                break;
+            }
         }
         System.out.println(Arrays.toString(inputArray4));
         System.out.println(Arrays.toString(outPutArray4));
